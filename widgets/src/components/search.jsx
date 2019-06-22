@@ -10,23 +10,29 @@ export default class SearchBar extends React.Component {
     }
 
     filterSearch(){
-        let match = this.state.data.filter(pokemon=>{
-            let name = this.state.input;
-            if (name.toLocaleLowerCase() === pokemon.slice(0, name.length).toLowerCase()) return pokemon;    
-        })   
+        let match = this.state.data.filter(pokemon=>(
+            this.state.input.toLocaleLowerCase() === pokemon.slice(0, this.state.input.length).toLowerCase()
+            ));   
         return match; 
     }
 
     handleInput(e){
-        this.setState( { input : e.target.value} )
-        
+        this.setState( { input : e.target.value} )   
+    }
+
+    fillSearchBar(e){
+        this.setState({input : e.target.innerHTML})
     }
 
     
 
     render(){
         const Results = props => {
-            let dataItems = props.map((item, i) => <li key={i}>{item}</li>)
+            let dataItems = props.map((item, i) => <li 
+                                                    className="search-result" 
+                                                    onClick={this.fillSearchBar.bind(this)} 
+                                                    key={i}
+                                                    >{item}</li>)
             return (
                 <ul>
                     {dataItems}
