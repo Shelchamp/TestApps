@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from '../hero';
+// import { Hero } from '../hero';
 import { heroes } from '../heroes';
 
 @Component({
@@ -10,11 +10,15 @@ import { heroes } from '../heroes';
 })
 export class HeroesComponent implements OnInit {
   
-  heroes:Hero[] = heroes;
+  heroes = heroes;
   
   constructor() { }
   
   ngOnInit() {
+  }
+
+  onClick() {
+    window.alert("It works!")
   }
 
 }
