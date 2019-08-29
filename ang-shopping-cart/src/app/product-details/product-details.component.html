@@ -1,0 +1,12 @@
+<h2>Product Details</h2>
+
+<div>
+  <h3>Name: {{ product.name }}</h3>
+  <h4>Price: {{ product.price | currency: "EUR" }}</h4>
+
+  <p>
+    Product Description: {{ product.description }}
+  </p>
+
+  <button (click)="add()">Buy</button>
+</div>
