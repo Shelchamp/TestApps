@@ -6,10 +6,9 @@ import { Hero } from './hero';
   providedIn: 'root'
 })
 export class HeroService {
-  heroes:Hero[] = heroes;
   constructor() { }
 
   getHeroes() : Hero[] {
-    return this.heroes;
+    return heroes
   }
 }
