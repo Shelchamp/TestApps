@@ -10,8 +10,8 @@ import { Hero } from '../hero';
 })
 export class HeroesComponent implements OnInit {
   
-  heroes;
-  selectedHero:Hero;
+  heroes: Hero[];
+  selectedHero: Hero;
   
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
@@ -22,11 +22,18 @@ export class HeroesComponent implements OnInit {
     ) { }
   
   ngOnInit() {
-    this.heroes = this.heroService.getHeroes();
+    this.getHeroes();
+    // this.heroes = this.heroService.getHeroes();
   }
 
-  onClick() {
-    window.alert("It works!")
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe( heroes => this.heroes = heroes)
+    // this.heroes = this.heroService.getHeroes();
   }
+
+  // onClick() {
+  //   window.alert("It works!")
+  // }
 
 }
